@@ -9,8 +9,10 @@
 import SpriteKit
 
 class FLGameScene: SKScene {
+    let kCellSize : CGFloat = CGFloat(32.0)
     
-    let kCellSize : CGFloat = 32.0
+    var aliveCells = Array<CGPoint>()
+    var cellNodes = Array<SKSpriteNode>()
     
     lazy var cellTexture : SKTexture = {
         // It's been pointed in some sites that SKShapeNode is not a trustworthy enough to draw shapes in our scene yet, so we're going to generate our cell shape with QuartzCore at initializatiom:
@@ -40,10 +42,7 @@ class FLGameScene: SKScene {
         /* Setup your scene here */
         
         self.backgroundColor = accentGreenColor
-        
-        let cellNode = SKSpriteNode(texture: cellTexture, color: SKColor.redColor(), size: CGSizeMake(kCellSize, kCellSize))
-        cellNode.position = CGPoint(x: 0, y: 0)
-        addChild(cellNode)
+        drawCellInCoordinates(CGPoint(x: 1, y: 1))
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
@@ -69,5 +68,37 @@ class FLGameScene: SKScene {
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
+    
+    // MARK: - Coordinate system
+    
+    func gameCoordinatesForSceneCoordinates(coordinates: CGPoint) -> CGPoint {
+        return CGPoint(x: coordinates.x / kCellSize, y: coordinates.y / kCellSize)
+    }
+    
+    func sceneCoordinatesForGameCoordinates(coordinates: CGPoint) -> CGPoint {
+        return CGPoint(x: coordinates.x * kCellSize + (kCellSize / 2), y: coordinates.y * kCellSize + (kCellSize / 2))
+    }
+    
+    // MARK: - Cell handling, drawing, adding and removing
+    
+    func addLivingCellToCoordinates(coordinates: CGPoint) -> Bool {
+        // Check if cell is currently alive, if not, we just add it to our array of living cells
+        let searchResult = self.aliveCells.filter({$0 == coordinates})
+        if(searchResult.count == 0) {
+            self.aliveCells.append(coordinates)
+            return true
+        }
+        return false
+    }
+    
+    func drawCellInCoordinates(coordinates: CGPoint) -> Void {
+        if(self.addLivingCellToCoordinates(coordinates)) {
+            // If we've added successfully a new cell to our list of cells, we should proceed to draw it:
+            let cellNode = SKSpriteNode(texture: cellTexture, color: nil, size: CGSizeMake(kCellSize, kCellSize))
+            cellNode.position = sceneCoordinatesForGameCoordinates(coordinates)
+            addChild(cellNode)
+        }
+    }
+    
     
 }

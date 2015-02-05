@@ -11,15 +11,8 @@ import SpriteKit
 
 class GameViewController: UIViewController {
     
-    lazy var pinchGestureRecognizer : UIPinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: Selector("didPinchOnView:"));
-    var originalBounds : CGRect?
-    let minimumZoom : CGFloat = 1.0 / 8.0
-    let maximumZoom : CGFloat = 1.0
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        originalBounds = self.view.bounds
         
         let skView = self.view as SKView
         skView.showsFPS = true
@@ -34,7 +27,9 @@ class GameViewController: UIViewController {
         scene.scaleMode = .ResizeFill
         
         skView.presentScene(scene)
-        skView.addGestureRecognizer(pinchGestureRecognizer)
+        
+        let tapGestureRecognizer : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "didTapOnGameView:")
+        skView.addGestureRecognizer(tapGestureRecognizer)
     }
 
     override func shouldAutorotate() -> Bool {
@@ -58,22 +53,14 @@ class GameViewController: UIViewController {
         return true
     }
     
-    // MARK: - Zoom in/out gesture recognizer
+    // MARK - Tap gesture handling...
     
-    func didPinchOnView(gestureRecognizer : UIPinchGestureRecognizer) {
-        println("Pinch!! Scale: \(gestureRecognizer.scale)")
+    func didTapOnGameView(tapGesture : UITapGestureRecognizer) {
         let skView = self.view as SKView
-        switch(originalBounds, skView.scene) {
-        case let(.Some(bounds), .Some(scene)) :
-            let scaledWidth = scene.size.width * gestureRecognizer.scale
-            let scaledHeight = scene.size.height * gestureRecognizer.scale
-            
-            let scaleRatio = bounds.size.width / scaledWidth
-            if(scaleRatio > minimumZoom && scaleRatio <= maximumZoom) {
-                scene.size = CGSize(width: scaledWidth, height: scaledHeight)
-            }
-        default:
-        break
+        if let scene = skView.scene {
+            let flScene = scene as FLGameScene
+            flScene.didTouchInView(tapGesture.locationInView(self.view))
         }
+        
     }
 }

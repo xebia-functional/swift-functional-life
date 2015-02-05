@@ -100,5 +100,9 @@ class FLGameScene: SKScene {
         }
     }
     
+    // MARK: - Responding to touches
     
+    func didTouchInView(uiKitCoordinates: CGPoint) -> Void {
+        println("Touch! \(uiKitCoordinates)")
+    }
 }

@@ -59,7 +59,7 @@ class GameViewController: UIViewController {
         let skView = self.view as SKView
         if let scene = skView.scene {
             let flScene = scene as FLGameScene
-            flScene.didTouchInView(tapGesture.locationInView(self.view))
+            //flScene.didTouchInView(tapGesture.locationInView(self.view))
         }
         
     }

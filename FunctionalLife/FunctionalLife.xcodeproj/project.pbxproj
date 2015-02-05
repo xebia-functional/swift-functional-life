@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5944BDB61A842BEA007CEC93 /* FLCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5944BDB51A842BEA007CEC93 /* FLCell.swift */; };
+		5944BDB71A842BEA007CEC93 /* FLCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5944BDB51A842BEA007CEC93 /* FLCell.swift */; };
 		F77C41441A7EC721004C0B11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77C41431A7EC721004C0B11 /* AppDelegate.swift */; };
 		F77C414A1A7EC721004C0B11 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77C41491A7EC721004C0B11 /* GameViewController.swift */; };
 		F77C414D1A7EC721004C0B11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F77C414B1A7EC721004C0B11 /* Main.storyboard */; };
@@ -32,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5944BDB51A842BEA007CEC93 /* FLCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLCell.swift; sourceTree = "<group>"; };
 		F77C413E1A7EC720004C0B11 /* FunctionalLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FunctionalLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F77C41421A7EC721004C0B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F77C41431A7EC721004C0B11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +68,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		591FB46C1A8422D100F69921 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5944BDB51A842BEA007CEC93 /* FLCell.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F77C41351A7EC720004C0B11 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +97,7 @@
 		F77C41401A7EC720004C0B11 /* FunctionalLife */ = {
 			isa = PBXGroup;
 			children = (
+				591FB46C1A8422D100F69921 /* Model */,
 				F7FCFAB01A7EE832005BB12C /* Constants */,
 				F7FCFAA91A7EE510005BB12C /* Extensions */,
 				F77C416C1A7EC932004C0B11 /* SpriteKit */,
@@ -253,6 +265,7 @@
 				F7FCFAB21A7EE840005BB12C /* FLColorConstants.swift in Sources */,
 				F7FCFAAB1A7EE53F005BB12C /* UIColor-Hex.swift in Sources */,
 				F77C41441A7EC721004C0B11 /* AppDelegate.swift in Sources */,
+				5944BDB61A842BEA007CEC93 /* FLCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +277,7 @@
 				F77C415E1A7EC721004C0B11 /* FunctionalLifeTests.swift in Sources */,
 				F7FCFAAC1A7EE53F005BB12C /* UIColor-Hex.swift in Sources */,
 				F7FCFAB31A7EE840005BB12C /* FLColorConstants.swift in Sources */,
+				5944BDB71A842BEA007CEC93 /* FLCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,15 +1,41 @@
-//
-//  FLGameScene.swift
-//  FunctionalLife
-//
-//  Created by Javier on 01/02/15.
-//  Copyright (c) 2015 47 Degrees. All rights reserved.
-//
+/*
+* Copyright (C) 2015 47 Degrees, LLC http://47deg.com hello@47deg.com
+*
+* Licensed under the Apache License, Version 2.0 (the "License"); you may
+* not use this file except in compliance with the License. You may obtain
+* a copy of the License at
+*
+*     http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
 
 import SpriteKit
 
+protocol FLGameSceneDelegate: class {
+    
+    func gameDidChangeGameState(state: FLGameState)
+    
+}
+
+enum FLGameState: Int {
+    case Creating, Living, Pause, Dead
+}
+    
 class FLGameScene: SKScene {
+    weak var gameDelegate: FLGameSceneDelegate?
+    
     let kCellSize: CGFloat = CGFloat(32.0)
+    
+    var gameState : FLGameState = .Creating {
+        didSet {
+            self.gameDelegate?.gameDidChangeGameState(gameState)
+        }
+    }
     
     var aliveCells = Array<FLCell>()
     var zombifiedCells = Array<FLCell>() // Just a cool name for deuqueableCells
@@ -39,10 +65,7 @@ class FLGameScene: SKScene {
     }()
     
     override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        
         self.backgroundColor = accentGreenColor
-        addLivingCellToCoordinates(CGPoint(x: 1, y: 1))
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
@@ -56,6 +79,20 @@ class FLGameScene: SKScene {
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        switch gameState {
+        case .Creating:
+            // TODO: do stuff
+            break
+        case .Living:
+            // TODO: do stuff
+            break
+        case .Pause:
+            // TODO: do stuff
+            break
+        case .Dead:
+            // TODO: do stuff
+            break
+        }        
     }
     
     // MARK: - Coordinate system
@@ -155,4 +192,5 @@ class FLGameScene: SKScene {
             }
         }
     }
+    
 }

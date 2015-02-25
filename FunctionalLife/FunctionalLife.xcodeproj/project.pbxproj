@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		591DAB271A9B6A2F000B2D7A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 591DAB261A9B6A2F000B2D7A /* Localizable.strings */; };
 		5944BDB61A842BEA007CEC93 /* FLCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5944BDB51A842BEA007CEC93 /* FLCell.swift */; };
 		5944BDB71A842BEA007CEC93 /* FLCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5944BDB51A842BEA007CEC93 /* FLCell.swift */; };
 		F77C41441A7EC721004C0B11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77C41431A7EC721004C0B11 /* AppDelegate.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		591DAB261A9B6A2F000B2D7A /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		5944BDB51A842BEA007CEC93 /* FLCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLCell.swift; sourceTree = "<group>"; };
 		F77C413E1A7EC720004C0B11 /* FunctionalLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FunctionalLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F77C41421A7EC721004C0B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				F77C41421A7EC721004C0B11 /* Info.plist */,
+				591DAB261A9B6A2F000B2D7A /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F77C41521A7EC721004C0B11 /* LaunchScreen.xib in Resources */,
+				591DAB271A9B6A2F000B2D7A /* Localizable.strings in Resources */,
 				F77C414F1A7EC721004C0B11 /* Images.xcassets in Resources */,
 				F77C414D1A7EC721004C0B11 /* Main.storyboard in Resources */,
 			);

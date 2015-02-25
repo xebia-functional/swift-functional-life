@@ -1,15 +1,31 @@
-//
-//  GameViewController.swift
-//  FunctionalLife
-//
-//  Created by Javier on 01/02/15.
-//  Copyright (c) 2015 47 Degrees. All rights reserved.
-//
+/*
+* Copyright (C) 2015 47 Degrees, LLC http://47deg.com hello@47deg.com
+*
+* Licensed under the Apache License, Version 2.0 (the "License"); you may
+* not use this file except in compliance with the License. You may obtain
+* a copy of the License at
+*
+*     http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
 
 import UIKit
 import SpriteKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, FLGameSceneDelegate {
+    
+    @IBOutlet weak var viewOverlayCreating: UIView!
+    @IBOutlet weak var viewOverlayPlaying: UIView!
+    @IBOutlet weak var lblHint: UILabel!
+    @IBOutlet weak var btnStart: UIButton!
+    @IBOutlet weak var btnPlayPause: UIButton!
+    
+    lazy var scene: FLGameScene = FLGameScene(size: self.view.bounds.size)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,15 +37,12 @@ class GameViewController: UIViewController {
         /* Sprite Kit applies additional optimizations to improve rendering performance */
         skView.ignoresSiblingOrder = true
         
-        let scene : FLGameScene = FLGameScene(size: view.bounds.size)
-        
         /* Set the scale mode to scale to fit the window */
         scene.scaleMode = .ResizeFill
-        
         skView.presentScene(scene)
+        scene.gameDelegate = self
         
-        let tapGestureRecognizer : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "didTapOnGameView:")
-        skView.addGestureRecognizer(tapGestureRecognizer)
+        setLocalizableTexts()
     }
 
     override func shouldAutorotate() -> Bool {
@@ -53,14 +66,44 @@ class GameViewController: UIViewController {
         return true
     }
     
-    // MARK - Tap gesture handling...
+    // MARK: - UI texts
     
-    func didTapOnGameView(tapGesture : UITapGestureRecognizer) {
-        let skView = self.view as SKView
-        if let scene = skView.scene {
-            let flScene = scene as FLGameScene
-            //flScene.didTouchInView(tapGesture.locationInView(self.view))
-        }
-        
+    func setLocalizableTexts() {
+        lblHint.text = NSLocalizedString("game_overlay_view_creating_label_hint", comment: "")
+        btnStart.setTitle(NSLocalizedString("game_overlay_view_creating_button_start", comment: ""), forState: .Normal)
+        btnPlayPause.setTitle(NSLocalizedString("game_overlay_view_playing_button_pause", comment: ""), forState: .Normal)
     }
+    
+    // MARK: - FLGameSceneDelegate protocol implementation
+    
+    func gameDidChangeGameState(state: FLGameState) {
+        switch state {
+        case .Creating:
+            viewOverlayCreating.hidden = false
+            viewOverlayPlaying.hidden = true
+        default:
+            viewOverlayCreating.hidden = true
+            viewOverlayPlaying.hidden = false
+        }
+    }
+    
+    // MARK: - Button handling
+    
+    @IBAction func didTapOnButtonStart() {
+        scene.gameState = .Living
+    }
+    
+    @IBAction func didTapOnButtonPlayPause() {
+        switch scene.gameState {
+        case .Living:
+            scene.gameState = .Pause
+            btnPlayPause.setTitle(NSLocalizedString("game_overlay_view_playing_button_play", comment: ""), forState: .Normal)
+        case .Pause:
+            scene.gameState = .Living
+            btnPlayPause.setTitle(NSLocalizedString("game_overlay_view_playing_button_pause", comment: ""), forState: .Normal)
+        default:
+            break
+        }
+    }
+    
 }

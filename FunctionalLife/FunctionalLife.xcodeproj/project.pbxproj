@@ -78,6 +78,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		5939BF4C1A9DD901001B488D /* GameAlgorithm */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GameAlgorithm;
+			sourceTree = "<group>";
+		};
 		F77C41351A7EC720004C0B11 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +106,7 @@
 		F77C41401A7EC720004C0B11 /* FunctionalLife */ = {
 			isa = PBXGroup;
 			children = (
+				5939BF4C1A9DD901001B488D /* GameAlgorithm */,
 				591FB46C1A8422D100F69921 /* Model */,
 				F7FCFAB01A7EE832005BB12C /* Constants */,
 				F7FCFAA91A7EE510005BB12C /* Extensions */,

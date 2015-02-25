@@ -185,7 +185,6 @@ class FLGameScene: SKScene {
     
     func didTouchInView(skCoordinates: CGPoint) -> Void {
         if let skView = self.view {
-            //let skCoordinates = skView.convertPoint(uiKitCoordinates, toScene: self)
             let cellCoordinates = gameCoordinatesForSceneCoordinates(skCoordinates)
             if !addLivingCellToCoordinates(cellCoordinates) {
                 removeCellInCoordinates(cellCoordinates)

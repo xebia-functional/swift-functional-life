@@ -10,6 +10,12 @@
 		591DAB271A9B6A2F000B2D7A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 591DAB261A9B6A2F000B2D7A /* Localizable.strings */; };
 		5944BDB61A842BEA007CEC93 /* FLCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5944BDB51A842BEA007CEC93 /* FLCell.swift */; };
 		5944BDB71A842BEA007CEC93 /* FLCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5944BDB51A842BEA007CEC93 /* FLCell.swift */; };
+		599AAFD81A9F2CA200597A3A /* FLArray-ImmutableAppending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599AAFD71A9F2CA200597A3A /* FLArray-ImmutableAppending.swift */; };
+		599AAFD91A9F2CA200597A3A /* FLArray-ImmutableAppending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599AAFD71A9F2CA200597A3A /* FLArray-ImmutableAppending.swift */; };
+		59AFEE8D1A9E21C500FD283A /* FLGameAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AFEE8C1A9E21C500FD283A /* FLGameAlgorithm.swift */; };
+		59AFEE8E1A9E26A100FD283A /* FLGameAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AFEE8C1A9E21C500FD283A /* FLGameAlgorithm.swift */; };
+		59C2ECDD1A9F4222003235E4 /* FLFunctionalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C2ECDC1A9F4222003235E4 /* FLFunctionalHelper.swift */; };
+		59C2ECDE1A9F4222003235E4 /* FLFunctionalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C2ECDC1A9F4222003235E4 /* FLFunctionalHelper.swift */; };
 		F77C41441A7EC721004C0B11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77C41431A7EC721004C0B11 /* AppDelegate.swift */; };
 		F77C414A1A7EC721004C0B11 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77C41491A7EC721004C0B11 /* GameViewController.swift */; };
 		F77C414D1A7EC721004C0B11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F77C414B1A7EC721004C0B11 /* Main.storyboard */; };
@@ -37,6 +43,9 @@
 /* Begin PBXFileReference section */
 		591DAB261A9B6A2F000B2D7A /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		5944BDB51A842BEA007CEC93 /* FLCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLCell.swift; sourceTree = "<group>"; };
+		599AAFD71A9F2CA200597A3A /* FLArray-ImmutableAppending.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FLArray-ImmutableAppending.swift"; sourceTree = "<group>"; };
+		59AFEE8C1A9E21C500FD283A /* FLGameAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLGameAlgorithm.swift; sourceTree = "<group>"; };
+		59C2ECDC1A9F4222003235E4 /* FLFunctionalHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLFunctionalHelper.swift; sourceTree = "<group>"; };
 		F77C413E1A7EC720004C0B11 /* FunctionalLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FunctionalLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F77C41421A7EC721004C0B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F77C41431A7EC721004C0B11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,8 +90,17 @@
 		5939BF4C1A9DD901001B488D /* GameAlgorithm */ = {
 			isa = PBXGroup;
 			children = (
+				59AFEE8C1A9E21C500FD283A /* FLGameAlgorithm.swift */,
 			);
 			path = GameAlgorithm;
+			sourceTree = "<group>";
+		};
+		59C2ECDB1A9F4207003235E4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				59C2ECDC1A9F4222003235E4 /* FLFunctionalHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		F77C41351A7EC720004C0B11 = {
@@ -106,6 +124,7 @@
 		F77C41401A7EC720004C0B11 /* FunctionalLife */ = {
 			isa = PBXGroup;
 			children = (
+				59C2ECDB1A9F4207003235E4 /* Helpers */,
 				5939BF4C1A9DD901001B488D /* GameAlgorithm */,
 				591FB46C1A8422D100F69921 /* Model */,
 				F7FCFAB01A7EE832005BB12C /* Constants */,
@@ -159,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				F7FCFAAA1A7EE53F005BB12C /* UIColor-Hex.swift */,
+				599AAFD71A9F2CA200597A3A /* FLArray-ImmutableAppending.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -273,10 +293,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F77C41711A7ECE25004C0B11 /* FLGameScene.swift in Sources */,
+				59AFEE8D1A9E21C500FD283A /* FLGameAlgorithm.swift in Sources */,
 				F77C414A1A7EC721004C0B11 /* GameViewController.swift in Sources */,
+				59C2ECDD1A9F4222003235E4 /* FLFunctionalHelper.swift in Sources */,
 				F7FCFAB21A7EE840005BB12C /* FLColorConstants.swift in Sources */,
 				F7FCFAAB1A7EE53F005BB12C /* UIColor-Hex.swift in Sources */,
 				F77C41441A7EC721004C0B11 /* AppDelegate.swift in Sources */,
+				599AAFD81A9F2CA200597A3A /* FLArray-ImmutableAppending.swift in Sources */,
 				5944BDB61A842BEA007CEC93 /* FLCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,8 +308,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59AFEE8E1A9E26A100FD283A /* FLGameAlgorithm.swift in Sources */,
+				599AAFD91A9F2CA200597A3A /* FLArray-ImmutableAppending.swift in Sources */,
 				F77C41721A7ECE25004C0B11 /* FLGameScene.swift in Sources */,
 				F77C415E1A7EC721004C0B11 /* FunctionalLifeTests.swift in Sources */,
+				59C2ECDE1A9F4222003235E4 /* FLFunctionalHelper.swift in Sources */,
 				F7FCFAAC1A7EE53F005BB12C /* UIColor-Hex.swift in Sources */,
 				F7FCFAB31A7EE840005BB12C /* FLColorConstants.swift in Sources */,
 				5944BDB71A842BEA007CEC93 /* FLCell.swift in Sources */,

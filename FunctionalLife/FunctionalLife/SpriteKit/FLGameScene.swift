@@ -19,6 +19,7 @@ import SpriteKit
 protocol FLGameSceneDelegate: class {
     
     func gameDidChangeGameState(state: FLGameState)
+    func didEvolve()
     
 }
 
@@ -119,6 +120,7 @@ class FLGameScene: SKScene {
             for cell in nextGenCells {
                 addLivingCellToCoordinates(cell)
             }
+            gameDelegate?.didEvolve()
         } else {
             // Armaggedon has come!
             gameState = .Dead

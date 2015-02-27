@@ -22,17 +22,18 @@ class GameViewController: UIViewController, FLGameSceneDelegate {
     @IBOutlet weak var viewOverlayCreating: UIView!
     @IBOutlet weak var viewOverlayPlaying: UIView!
     @IBOutlet weak var lblHint: UILabel!
+    @IBOutlet weak var lblGenerations: UILabel!
     @IBOutlet weak var btnStart: UIButton!
     @IBOutlet weak var btnPlayPause: UIButton!
+    @IBOutlet weak var btnStop: UIButton!
     
     lazy var scene: FLGameScene = FLGameScene(size: self.view.bounds.size)
+    var currentGeneration = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let skView = self.view as SKView
-        //skView.showsFPS = true
-        //skView.showsNodeCount = true
         
         /* Sprite Kit applies additional optimizations to improve rendering performance */
         skView.ignoresSiblingOrder = true
@@ -72,6 +73,8 @@ class GameViewController: UIViewController, FLGameSceneDelegate {
         lblHint.text = NSLocalizedString("game_overlay_view_creating_label_hint", comment: "")
         btnStart.setTitle(NSLocalizedString("game_overlay_view_creating_button_start", comment: ""), forState: .Normal)
         btnPlayPause.setTitle(NSLocalizedString("game_overlay_view_playing_button_pause", comment: ""), forState: .Normal)
+        btnStop.setTitle(NSLocalizedString("game_overlay_view_playing_button_stop", comment: ""), forState: .Normal)
+        lblGenerations.text = NSLocalizedString("game_overlay_view_playing_label_generations", comment: "") + String(currentGeneration)
     }
     
     // MARK: - FLGameSceneDelegate protocol implementation
@@ -86,8 +89,14 @@ class GameViewController: UIViewController, FLGameSceneDelegate {
             viewOverlayPlaying.hidden = false
             if state == .Dead {
                 self.launchGameOverAlert()
+                self.currentGeneration = 0
             }
         }
+    }
+    
+    func didEvolve() {
+        currentGeneration++
+        lblGenerations.text = NSLocalizedString("game_overlay_view_playing_label_generations", comment: "") + String(currentGeneration)
     }
     
     // MARK: - The end of life warning
@@ -118,6 +127,26 @@ class GameViewController: UIViewController, FLGameSceneDelegate {
         default:
             break
         }
+    }
+    
+    @IBAction func didTapOnButtonStop() {
+        scene.gameState = .Pause
+        
+        let alertVC = UIAlertController(title: NSLocalizedString("game_alert_stop_title", comment: ""), message: NSLocalizedString("game_alert_stop_message", comment: ""), preferredStyle: .Alert)
+        let alertActionDestroy = UIAlertAction(title: NSLocalizedString("game_alert_stop_destroy", comment: ""), style: .Destructive) { (action) -> Void in
+            self.scene.enqueueAllCells()
+            self.currentGeneration = 0
+            self.setLocalizableTexts()
+            self.scene.gameState = .Creating
+        }
+        let alertActionCancel = UIAlertAction(title: NSLocalizedString("common_cancel", comment: ""), style: .Cancel)  { (action) -> Void in
+            self.scene.gameState = .Living
+        }
+        
+        alertVC.addAction(alertActionDestroy)
+        alertVC.addAction(alertActionCancel)
+        
+        self.presentViewController(alertVC, animated: true, completion: nil)
     }
     
 }

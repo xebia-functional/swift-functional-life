@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -28,11 +28,12 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMh-7S-CF4">
                                         <rect key="frame" x="240" y="558" width="120" height="34"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="zAG-Pa-uqs"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
-                                        <state key="normal" title="Button">
+                                        <state key="normal" title="Start">
                                             <color key="titleColor" red="0.29803921568627451" green="0.68627450980392157" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -54,9 +55,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FFv-pF-khX">
-                                        <rect key="frame" x="472" y="8" width="120" height="30"/>
+                                        <rect key="frame" x="20" y="558" width="120" height="34"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="0jm-aV-lcJ"/>
                                             <constraint firstAttribute="width" constant="120" id="dGf-1J-xYT"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
@@ -68,11 +69,41 @@
                                             <action selector="didTapOnButtonPlayPause" destination="BV1-FR-VrT" eventType="touchUpInside" id="Nf4-P5-FYW"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btd-Xt-KvA">
+                                        <rect key="frame" x="460" y="558" width="120" height="34"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="bZn-aI-n5k"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                                        <state key="normal" title="Stop">
+                                            <color key="titleColor" red="0.29803921570000003" green="0.68627450980000004" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapOnButtonStop" destination="BV1-FR-VrT" eventType="touchUpInside" id="vwO-TH-QVC"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="122" placeholderIntrinsicHeight="21" text="GENERATIONS: 0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsc-6Y-P00" userLabel="Generations Label">
+                                        <rect key="frame" x="450" y="0.0" width="150" height="26"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="R2I-wb-VyW"/>
+                                            <constraint firstAttribute="height" constant="26" id="gJv-VK-rVQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
+                                        <color key="textColor" red="0.90980392160000001" green="0.96078431369999995" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="FFv-pF-khX" secondAttribute="trailing" constant="8" id="YKH-Pw-9Bq"/>
-                                    <constraint firstItem="FFv-pF-khX" firstAttribute="top" secondItem="lLu-ov-Dmf" secondAttribute="top" constant="8" id="n8b-ZA-SrI"/>
+                                    <constraint firstItem="dsc-6Y-P00" firstAttribute="top" secondItem="lLu-ov-Dmf" secondAttribute="top" id="6Zy-Yz-g97"/>
+                                    <constraint firstAttribute="trailing" secondItem="btd-Xt-KvA" secondAttribute="trailing" constant="20" id="Bj9-3a-ewb"/>
+                                    <constraint firstAttribute="bottom" secondItem="FFv-pF-khX" secondAttribute="bottom" constant="8" id="FvG-dg-GdA"/>
+                                    <constraint firstAttribute="bottom" secondItem="btd-Xt-KvA" secondAttribute="bottom" constant="8" id="VrV-zf-pil"/>
+                                    <constraint firstAttribute="trailing" secondItem="dsc-6Y-P00" secondAttribute="trailing" id="fxI-bJ-GEC"/>
+                                    <constraint firstItem="FFv-pF-khX" firstAttribute="leading" secondItem="lLu-ov-Dmf" secondAttribute="leading" constant="20" id="l5V-eC-7pZ"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -94,6 +125,8 @@
                     <connections>
                         <outlet property="btnPlayPause" destination="FFv-pF-khX" id="e17-xU-1CX"/>
                         <outlet property="btnStart" destination="LMh-7S-CF4" id="G3A-RR-gVf"/>
+                        <outlet property="btnStop" destination="btd-Xt-KvA" id="veJ-mm-nyH"/>
+                        <outlet property="lblGenerations" destination="dsc-6Y-P00" id="aMw-rd-uwI"/>
                         <outlet property="lblHint" destination="EEf-wS-Kxh" id="tnt-FI-hxe"/>
                         <outlet property="viewOverlayCreating" destination="b0f-75-qt3" id="HD4-EF-P0J"/>
                         <outlet property="viewOverlayPlaying" destination="lLu-ov-Dmf" id="nHS-NA-0iC"/>

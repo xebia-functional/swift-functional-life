@@ -18,3 +18,7 @@
 "game_overlay_view_creating_button_start" = "START";
 "game_overlay_view_playing_button_pause" = "PAUSE";
 "game_overlay_view_playing_button_play" = "PLAY";
+
+"game_alert_dead_title" = "Game over";
+"game_alert_dead_message" = "Life is not possible anymore, as there are no more alive cells left. Try again with another seed!";
+"common_ok" = "OK";

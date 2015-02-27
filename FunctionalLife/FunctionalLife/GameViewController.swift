@@ -31,8 +31,8 @@ class GameViewController: UIViewController, FLGameSceneDelegate {
         super.viewDidLoad()
         
         let skView = self.view as SKView
-        skView.showsFPS = true
-        skView.showsNodeCount = true
+        //skView.showsFPS = true
+        //skView.showsNodeCount = true
         
         /* Sprite Kit applies additional optimizations to improve rendering performance */
         skView.ignoresSiblingOrder = true
@@ -84,7 +84,21 @@ class GameViewController: UIViewController, FLGameSceneDelegate {
         default:
             viewOverlayCreating.hidden = true
             viewOverlayPlaying.hidden = false
+            if state == .Dead {
+                self.launchGameOverAlert()
+            }
         }
+    }
+    
+    // MARK: - The end of life warning
+    
+    func launchGameOverAlert() {
+        let alertVC = UIAlertController(title: NSLocalizedString("game_alert_dead_title", comment: ""), message: NSLocalizedString("game_alert_dead_message", comment: ""), preferredStyle: .Alert)
+        let alertAction = UIAlertAction(title: NSLocalizedString("common_ok", comment: ""), style: .Default) { (action) -> Void in
+            self.scene.gameState = .Creating
+        }
+        alertVC.addAction(alertAction)
+        self.presentViewController(alertVC, animated: true, completion: nil)
     }
     
     // MARK: - Button handling

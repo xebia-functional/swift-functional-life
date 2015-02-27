@@ -19,8 +19,8 @@ import SpriteKit
 
 class FLCell: NSObject {
     
-    var coordinates: CGPoint!
-    let node: SKSpriteNode!
+    var coordinates: CGPoint
+    let node: SKSpriteNode
     
     init(coordinates: CGPoint, node: SKSpriteNode) {
         self.coordinates = coordinates

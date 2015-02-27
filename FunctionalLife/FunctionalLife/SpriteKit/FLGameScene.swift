@@ -30,10 +30,19 @@ class FLGameScene: SKScene {
     weak var gameDelegate: FLGameSceneDelegate?
     
     let kCellSize: CGFloat = CGFloat(32.0)
+    let kTickLengthInMillis = NSTimeInterval(600)
+    var lastTick: NSDate?
     
     var gameState : FLGameState = .Creating {
         didSet {
             self.gameDelegate?.gameDidChangeGameState(gameState)
+            switch gameState {
+            case .Living:
+                lastTick = NSDate()
+            case .Creating, .Dead:
+                lastTick = nil
+            default: break
+            }
         }
     }
     
@@ -81,18 +90,39 @@ class FLGameScene: SKScene {
         /* Called before each frame is rendered */
         switch gameState {
         case .Creating:
-            // TODO: do stuff
             break
         case .Living:
-            // TODO: do stuff
+            if let _lastTick = lastTick {
+                let timePassed = abs(_lastTick.timeIntervalSinceNow * 1000.0)
+                if timePassed > kTickLengthInMillis {
+                    lastTick = NSDate()
+                    updateScene()
+                }
+            }
             break
         case .Pause:
-            // TODO: do stuff
             break
         case .Dead:
-            // TODO: do stuff
             break
-        }        
+        }
+    }
+    
+    func updateScene() {
+        // In each tick we apply the rules of the Game of Life to continue evolving our universe...
+        let currentGenCells = aliveCells.map({ $0.coordinates })
+        let nextGenCells = FLGameAlgorithm.evolveListOfAliveCells(currentGenCells)
+        
+        enqueueAllCells()
+        
+        if nextGenCells.count > 0 {
+            // Live goes on...
+            for cell in nextGenCells {
+                addLivingCellToCoordinates(cell)
+            }
+        } else {
+            // Armaggedon has come!
+            gameState = .Dead
+        }
     }
     
     // MARK: - Coordinate system
@@ -144,6 +174,13 @@ class FLGameScene: SKScene {
             return true
         }
         return false
+    }
+    
+    func enqueueAllCells() {
+        let listOfAliveCells = aliveCells
+        for cell in listOfAliveCells {
+            enqueueCell(cell)
+        }
     }
     
     func drawCellInCoordinates(coordinates: CGPoint) -> SKSpriteNode {

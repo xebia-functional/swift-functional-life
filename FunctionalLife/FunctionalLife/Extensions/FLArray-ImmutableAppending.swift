@@ -19,11 +19,7 @@ import Foundation
 extension Array {
     
     func immutableAppend(itemToAdd: T) -> Array<T> {
-        var tempArray = self
-        tempArray.append(itemToAdd)
-        
-        let result = tempArray
-        return result
+        return FLFunctionalHelper.immutableAppend(self, itemToAdd: itemToAdd)
     }
     
 }

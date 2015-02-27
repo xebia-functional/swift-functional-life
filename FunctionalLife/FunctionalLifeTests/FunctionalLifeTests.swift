@@ -30,18 +30,6 @@ class FunctionalLifeTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
     // MARK: - Game rules
     
     func testGliderEvolution() {
@@ -149,11 +137,6 @@ class FunctionalLifeTests: XCTestCase {
             let farCell = CGPointMake(cell.x - 3, cell.x - 3)
             XCTAssertFalse(FLGameAlgorithm.checkCellAdjacency(mainCell, cellB: farCell), "Adjacent cells should be at 1 position from the main cell")
         }
-    }
-    
-    func testListOfAdjacentCells() {
-        let mainCell = CGPointMake(1.0, 1.0)
-        
     }
     
     // MARK: Helper functions

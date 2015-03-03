@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Section 41</title>
+  <meta id="xcode-display" name="xcode-display" content="render">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, maximum-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+<body>
+<div class="content-wrapper">
+  <section class="section">
+    <p>These higher-order functions gives us so many different approaches to solve problems! In fact, both <a href="http://robnapier.net/reduction-in-force">filter and map are actually based on reduce</a>. Once you get the hang of them, you&#39;ll find yourself improving their use in your code really quickly!</p>
+<h3 id="an-application-of-all-this-functional-life">An application of all this: Functional Life</h3>
+<p>I thought it&#39;d be great to create a little app that would use some of these new functionalities. So I remembered <a href="http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway&#39;s Game of Life</a>: a nice little algorithm that sparked my imagination when I was a child and tried it on my brother&#39;s MSX computer (and it created a frenzy among micro-computer users in the 1970s and 80s). In &quot;Game of Life&quot; there&#39;s a field polluted with living and dead cells. The player creates a seed of life (made of several living cells), and then sees how it evolves generation by generation. Besides being a problem really fun to work in and having very visual results, I didn&#39;t realize that it&#39;s a pure functional problem: each generation is the result of applying the algorithm on its predecessor. It&#39;s like being the god of your own little universe, and not just some god but a <strong>functional one</strong>!</p>
+<p>The project itself is an iPhone/iPad app, and the graphics and game loop are done using SpriteKit. You can find the game algorithm in the class FLGameAlgorithm, which you&#39;ll see it&#39;s really short and succinct. During the development I&#39;ve tried to use the features I&#39;ve introduced in the rest of the article, but as a newbie myself in the functional arena, I&#39;m sure there&#39;s a lot of room for improvement here. Advices and suggestions will be really appreciated! :). Feel free to download it from <a href="https://github.com/jdesiloniz/functionallife">this repository</a>.</p>
+<h3 id="conclusion-at-last-">Conclusion (at last!)</h3>
+<p>In this article I&#39;ve tried to share a little bit of my experience applying my basic knowledge of functional programming and patterns to my day-to-day Swift development. I&#39;d like to clarify that by no means I&#39;m trying to say that Swift is a functional language: while some of its features allow functional programming to be possible in Mac OS X and iOS development, there are really good arguments against this reasoning (i.e.: the clear and succinct <a href="http://robnapier.net/swift-is-not-functional">&quot;Swift Is Not Functional&quot;</a> by <a href="https://twitter.com/cocoaphony">@cocoaphony</a>). There&#39;s still many features from Scala, Haskell and all the other members of the functional family that are missing from Swift. But that&#39;s something I&#39;m sure the open-source community, and ourselves, are willing to help with! I hope that this text helps some of our fellow iOS/Mac developers to put a little of functional adventure into their routine imperative lives!</p>
+
+  </section>
+</div>
+</body>
+</html>

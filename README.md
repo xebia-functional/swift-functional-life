@@ -5,6 +5,9 @@
 #Compatibility
 **Functional Life** runs under iOS 8, and was developed with Swift 1.0.
 
+#Swift and Scala similarities
+As mentioned earlier, this project is the result of applying some of the functional patterns I've been learning while writing an article about the [similarities between Swift and Scala](http://www.47deg.com). I've also included the article in interactive Playground format in this repo for you to read and play with if interested. You can find it in the **Swift-Scala Playground** directory.
+
 #License
 
 Copyright (C) 2015 47 Degrees, LLC [http://47deg.com](http://47deg.com) [hello@47deg.com](mailto:hello@47deg.com)

@@ -1,12 +1,12 @@
 #functionallife
 
-**Functional Life** is a small iOS project to showcase some of the functionalities that I've talked about in [this article](http://www.47deg.com) for the 47 Degrees blog. It's a really basic implementation of **Conway's Game of Life** algorithm, done with **SpriteKit**. The algorithm is implemented in the *FLGameAlgorithm* class, which you'll see is really succinct. I'm sure there's a lot of room for improvement here, and maybe I put some time on it in the future, but for now on you can play with it as it is.
+**Functional Life** is a small iOS project to showcase some of the functionalities that we've talked about in [this article](http://www.47deg.com) for the 47 Degrees blog. It's a really basic implementation of **Conway's Game of Life** algorithm, done with **SpriteKit**. The algorithm is implemented in the *FLGameAlgorithm* class, which you'll see is really succinct. There's a lot of room for improvement here for sure (and maybe we'll put some time on it in the future) but for now on you can play with it as it is.
 
 #Compatibility
-**Functional Life** runs under iOS 8, and was developed with Swift 1.0.
+**Functional Life** runs under iOS 8, and was developed with Swift 1.1.
 
 #Swift and Scala similarities
-As mentioned earlier, this project is the result of applying some of the functional patterns I've been learning while writing an article about the [similarities between Swift and Scala](http://www.47deg.com). I've also included the article in interactive Playground format in this repo for you to read and play with if interested. You can find it in the **Swift-Scala Playground** directory.
+This project is the result of applying some of the functional patterns that are available now in Swift that we explored in the earlier mentioned article. In this same repo you can find it in interactive Playground format for you to read and play with if interested. You can find it in the **SwiftScalaPlayground** directory.
 
 #License
 

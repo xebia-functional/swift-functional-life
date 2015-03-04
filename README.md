@@ -6,7 +6,7 @@
 **Functional Life** runs under iOS 8, and was developed with Swift 1.1.
 
 #Swift and Scala similarities
-This project is the result of applying some of the functional patterns that are available now in Swift that we explored in the earlier mentioned article. In this same repo you can find it in interactive Playground format for you to read and play with if interested. You can find it in the **SwiftScalaPlayground** directory.
+This project is the result of applying some of the functional patterns that are available now in Swift that we explored in the earlier mentioned article. In this same repo you can find it in interactive Playground format for you to read and play with if interested (in the **SwiftScalaPlayground** directory).
 
 #License
 

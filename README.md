@@ -1,5 +1,7 @@
 #functionallife
 
+![Life should be lived functionally!](http://www.47deg.com/assets/img/blog/gameoflife.gif)
+
 **Functional Life** is a small iOS project to showcase some of the functionalities that we've talked about in [this article](http://www.47deg.com) for the 47 Degrees blog. It's a really basic implementation of **Conway's Game of Life** algorithm, done with **SpriteKit**. The algorithm is implemented in the *FLGameAlgorithm* class, which you'll see is really succinct. There is a lot of room for improvement here for sure (and maybe we'll put some more time in it in the future) but for now you can play with it as is.
 
 #Compatibility
